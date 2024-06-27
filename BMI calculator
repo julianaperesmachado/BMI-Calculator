@@ -29,11 +29,11 @@ def bmi_calculator():
         else:
             category = 'Obese'
 
-        
+
         with open("bmi_data.txt", "a") as file:
             file.write(f"{name},{age},{height},{weight},{bmi:.2f},{category}\n")
 
-        messagebox.showinfo("BMI Result", f"{name}, your BMI is: {bmi:.2f}. You are {category}.")
+        messagebox.showinfo("BMI Result", f"{name}, your BMI is: {bmi:.2f}. Your BMI is {category}.")
     except ValueError as e:
         messagebox.showerror("Input Error", str(e))
 
@@ -52,9 +52,9 @@ def show_graph():
         sizes = categories.values()
 
         plt.figure(figsize=(8, 8))
-        plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
-        plt.title('BMI Categories Distribution')
-        plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+        plt.pie(sizes, labels=labels,autopct='%1.1f%%', startangle=140)
+        plt.title('BMI Categories Chart\n')
+        plt.axis('equal')
         plt.show()
     except FileNotFoundError:
         messagebox.showerror("File Error", "No data available to show the graph.")
@@ -93,6 +93,3 @@ graphbtn = tkinter.Button(frame, text="Show Graph", command=show_graph)
 graphbtn.grid(row=5, column=0, columnspan=2, pady=10)
 
 window.mainloop()
-
-
-
